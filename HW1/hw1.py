@@ -17,7 +17,18 @@ def main():
 	  '6' : ['13', '14'],
 	  '7' : ['15', '16'],
 	  '8' : ['17', '18'],
-	  '9' : ['19']
+	  '9' : ['19'],
+	  '10' : [],
+	  '11' : [],
+	  '12' : [],
+	  'G' : [],
+	  '13' : [],
+	  '14' : [],
+	  '15' : [],
+	  '16' : [],
+	  '17' : [],
+	  '18' : [],
+	  '19' : []
 	  }
 	visited = set()
 	# Visited_order will contain a list of nodes in the order visited
@@ -48,6 +59,14 @@ def dfs(visited, graph, node, solution):
 	solution (list): the solution
 	"""
 	# TODO: Write your code here
+
+	visited.add(node)
+	solution.append(node)
+
+	for i in graph[node]:
+		if i not in visited:
+			dfs(visited, graph, i, solution)
+
 	return None
 
 
@@ -59,6 +78,23 @@ def bfs(visited, graph, node, solution):
 	solution (list): the solution
 	"""
 	# TODO: Write your code here
+
+	visited = set()
+	queue = []
+
+	queue.append(node)
+	visited.add(node)
+	solution.append(node)
+
+	while queue:
+		s = queue.pop(0)
+
+		for i in graph[s]:
+			if i not in visited:
+				queue.append(i)
+				visited.add(i)
+				solution.append(i)
+
 	return None
 
 
