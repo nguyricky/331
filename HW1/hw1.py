@@ -60,14 +60,19 @@ def dfs(visited, graph, node, solution):
 	"""
 	# TODO: Write your code here
 
+	if node == 'G':
+		solution.append(node)
+		return True
+
 	visited.add(node)
 	solution.append(node)
 
 	for i in graph[node]:
 		if i not in visited:
-			dfs(visited, graph, i, solution)
+			if dfs(visited, graph, i, solution):
+				return True
 
-	return None
+	return False
 
 
 def bfs(visited, graph, node, solution):
@@ -94,6 +99,9 @@ def bfs(visited, graph, node, solution):
 				queue.append(i)
 				visited.add(i)
 				solution.append(i)
+
+			if i == 'G':
+				return solution
 
 	return None
 
