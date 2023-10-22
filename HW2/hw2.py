@@ -55,9 +55,9 @@ def main():
     node1.add_neighbor(node4, 4)
     node2.add_neighbor(node4, 6)
     node2.add_neighbor(node5, 5)
-    node3.add_neighbor(G, 5)
+    node3.add_neighbor(node4, 5)
     node4.add_neighbor(G, 4)
-    node5.add_neighbor(G, 8)
+    node5.add_neighbor(node4, 8)
 
     # Running A*
     start_time = time()
