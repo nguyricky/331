@@ -22,20 +22,35 @@ class Node:
     def add_neighbor(self, neighbor, cost):
         self.neighbors[neighbor] = cost
 
-
 def a_star_search(start, goal):
-    """Implement A* Search
-    start: start node S
-    goal: goal node G
-    shortest_path (list of strings)
-    solution_cost (int)
-    nodeds_expanded (list of strings)"""
-    # TODO: Write your code here
+    queue = []
+    queue.append(start)
+    visited = set()
+    dictionary = {}
+    start.cost = 0
+    
+    start.fn = start.cost + start.heuristic 
+ 
+    while queue:
+        queue.sort(key=lambda node: node.fn)
+        s = queue.pop(0)
 
-    # Skeleton code to be changed, just here so things can run
-    shortest_path, solution_cost, nodes_expanded = [], 0, []
+        if s == goal:
+            path = []
+            while s is not None:
+                path.insert(0, s.name)
+                s = dictionary.get(s)
+            return path, goal.cost, len(visited)
+        elif s not in visited:
+            visited.add(s)
+            for neighbor, cost in s.neighbors.items():
+                if s.cost + cost < neighbor.cost:
+                    neighbor.cost = s.cost + cost
+                    dictionary[neighbor] = s
+                    neighbor.fn = neighbor.cost + neighbor.heuristic
+                    queue.append(neighbor)
 
-    return shortest_path, solution_cost, nodes_expanded 
+    return None
 
 
 def main():
