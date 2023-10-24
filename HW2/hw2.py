@@ -1,5 +1,6 @@
 # CS331 F23 Homework 2 
-# TODO: Write your full name here
+# TODO: Ricky Nguyen
+#       Student ID: 934260731
 # Implement A* Search
 # Tested with Python 3.9.12
 
