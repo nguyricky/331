@@ -36,11 +36,11 @@ def a_star_search(start, goal):
         s = queue.pop(0)
 
         if s == goal:
-            path = []
+            shortest_path = []
             while s is not None:
-                path.insert(0, s.name)
+                shortest_path.insert(0, s.name)
                 s = dictionary.get(s)
-            return path, goal.cost, len(visited)
+            return shortest_path, goal.cost, len(visited)
         elif s not in visited:
             visited.add(s)
             for neighbor, cost in s.neighbors.items():
