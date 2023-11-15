@@ -6,7 +6,6 @@
 
 from time import time
 
-
 class Node:
     """Node class
     name (string): Node name like "S" or "1"
